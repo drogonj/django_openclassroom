@@ -1,0 +1,14 @@
+
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+<h2>Create a contact:</h2>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Envoyer">
+</form>
+
+{% endblock %}

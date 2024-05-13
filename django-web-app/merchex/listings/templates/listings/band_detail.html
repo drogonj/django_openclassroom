@@ -1,0 +1,19 @@
+
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+<h2>{{ band.name }}</h2>
+<p>Danger: {{ band.get_danger_level_display }}</p>
+<p>Annee de parution: {{ band.year_formed }}</p>
+<p>Etat: {{ band.active | yesno:"active,inactive" }}</p>
+<p>Informations: {{ band.biography }}</p>
+
+{% if band.official_homepage %}
+<li><a href="{{ band.official_homepage }}">{{ band.official_homepage }}</a></li>
+{% endif %}
+<br>
+<a href="{% url 'band_edit' band.id %}">Modifier</a>
+<a href="{% url 'band_delete' band.id %}">Supprimer</a>
+
+{% endblock %}

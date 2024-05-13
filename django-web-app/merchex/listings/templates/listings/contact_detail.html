@@ -1,0 +1,13 @@
+
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+<h2>{{ contact.firstname }} {{ contact.lastname }}</h2>
+<p>Band: {{ contact.band }}</p>
+<p>Localisation: {{ contact.localisation }}</p>
+<br>
+<a href="{% url 'contact_edit' contact.id %}">Modifier</a>
+<a href="{% url 'contact_delete' contact.id %}">Supprimer</a>
+
+{% endblock %}

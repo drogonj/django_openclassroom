@@ -5,8 +5,15 @@
     <meta charset="UTF-8">
     <title>Merchex</title>
     <link rel="stylesheet" href="{% static 'listings/styles.css' %}" />
+    <link rel="shortcut icon" type="image/png" href="{% static 'listings/favicon.png' %}">
 </head>
 <body>
+
+    <nav>
+        <a href="{% url 'band_list' %}">Groupes</a>
+        <a href="{% url 'contact_list' %}">Contacts</a>
+        <a href="{% url 'contact_us' %}">Contact Us</a>
+    </nav>
 
     {% block content %}{% endblock %}
 

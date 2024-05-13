@@ -1,0 +1,15 @@
+
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+{% now "jS F Y H:i" %}
+<h2>Liste des organisations: </h2>
+<ul>
+    {% for band in bands %}
+    <li><a href="{% url 'band_detail' band.id %}">{{ band.name | upper }}</a></li>
+    {% endfor %}
+</ul>
+<a href="{% url 'band_create' %}"> Creer une organisation </a>
+
+{% endblock %}

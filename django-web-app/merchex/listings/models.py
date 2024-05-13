@@ -26,7 +26,7 @@ class Announce(models.Model):
     title = models.fields.CharField(max_length=100)
 
 class Contact(models.Model):
-    firstname = models.fields.CharField(max_length=50)
+    firstname = models.fields.Field(max_length=50)
     lastname = models.fields.CharField(max_length=50)
     band = models.ForeignKey(Band, null=True, on_delete=models.SET_NULL)
     localisation = models.fields.CharField(max_length=100)

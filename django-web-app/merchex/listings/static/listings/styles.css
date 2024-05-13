@@ -8,3 +8,20 @@ h1 {
     font-family: "Segoe UI", system-ui, sans-serif;
     color: blue;
 }
+
+nav > a {
+    padding: 0 5px;
+}
+
+form > div {
+    padding: 2px;
+}
+
+form > div > label {
+    display: inline-block;
+    text-align: right;
+}
+
+.errorlist {
+    width: 300px;
+}

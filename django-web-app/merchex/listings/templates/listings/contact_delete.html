@@ -1,0 +1,14 @@
+
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+<h2>Supprimer le contact</h2>
+<p>Etes-vous sur de vouloir supprimer le contact: {{ contact.firstname }} {{ contact.lastname }} ?</p>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Supprimer">
+</form>
+
+{% endblock %}
