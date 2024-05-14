@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fotoblog</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
+</head>
+<body>
+    <h1>FotoBlog</h1>
+    {% if user.is_authenticated %}
+     <p id="logout-button">Vous êtes connecté en tant que {{ request.user }}. <a href="{% url 'logout' %}">Se déconnecter</a></p>
+    {% endif %}
+    {% block content %}{% endblock content %}
+</body>
+</html>
