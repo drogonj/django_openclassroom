@@ -24,9 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*#+u%!p2$&tj8a)+nwql+pbky&ydnml)*2gi=n97hlvy2#2zev'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1'
+]
 
 
 # Application definition
@@ -99,8 +101,14 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    # },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'authentification.validators.ContainsLetterValidator',
+    },
+    {
+        'NAME': 'authentification.validators.ContainsDigitValidator',
     },
 ]
 
@@ -135,3 +143,7 @@ AUTH_USER_MODEL = 'authentification.User'
 LOGIN_URL = 'login'
 
 LOGIN_REDIRECT_URL = 'home'
+
+MEDIA_URL ='/media/'
+
+MEDIA_ROOT = BASE_DIR.joinpath('media/')

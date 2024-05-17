@@ -10,7 +10,12 @@
 <body>
     <h1>FotoBlog</h1>
     {% if user.is_authenticated %}
-     <p id="logout-button">Vous êtes connecté en tant que {{ request.user }}. <a href="{% url 'logout' %}">Se déconnecter</a></p>
+    <div>
+        {% if user.profile_picture %}
+        <img class="avatar" src="{{ user.profile_picture.url }}">
+        {% endif %}
+        <p id="logout-button">Vous êtes connecté en tant que {{ request.user }}. <a href="{% url 'logout' %}">Se déconnecter</a></p>
+    </div>
     {% endif %}
     {% block content %}{% endblock content %}
 </body>

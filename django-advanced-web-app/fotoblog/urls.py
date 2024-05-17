@@ -17,15 +17,25 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth.views import LoginView
+from django.conf import settings
+from django.conf.urls.static import static
 import authentification.views
 import blog.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('signup/', authentification.views.signup_page, name='signup'),
     path('', LoginView.as_view(
         template_name='authentification/login.html',
         redirect_authenticated_user=True,),
         name='login'),
     path('logout/', authentification.views.logout_page, name='logout'),
     path('home/', blog.views.HomeView.as_view(), name='home'),
+    path('photo/upload/', blog.views.photo_upload, name='photo_upload'),
+    path('profile/upload_profile_picture/', authentification.views.upload_profile_picture, name='upload_profile_picture'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+    )

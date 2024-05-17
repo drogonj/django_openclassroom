@@ -4,5 +4,13 @@
 {% block content %}
 
 <h2>Home</h2>
+<div class="creator-photo-container">
+    {% for photo in photos %}
+    <div class="creator-photo">
+        <img src="{{ photo.image.url }}">
+        <p>{{ photo.caption }}</p>
+    </div>
+    {% endfor %}
+</div>
 
 {% endblock content %}
